@@ -1,4 +1,4 @@
-const orm = require("./config/orm")
+const orm = require("../config/orm")
 
 const burger = {
   all: (callback)=>{
@@ -10,7 +10,7 @@ const burger = {
     orm.devour(id, (result)=>{
       callback(result)
       })},
-  create: (callback)=>{
+  create: (name, callback)=>{
     orm.create(name, (result)=>{
       callback(result)
       })}

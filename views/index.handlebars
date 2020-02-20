@@ -1,0 +1,48 @@
+<h1> Burgers! </h1>
+<h2>Eat Sum!</h2>
+<h2>Make a custom burger</h2>
+
+<form class="create-form  burger-entry-group">
+
+  <div class="form-group">
+    <label class = "burger-entry-title" for="burger_field">Burger Name:</label>
+    <input class="burger-input" type="text" id="burger_field" name="name">
+  </div>
+
+  <button class = "button" type="submit">Add Your Custom Burger</button>
+</form>
+
+
+<ul class = "burger_list">
+  {{#each burger}}
+    <li>{{this}}</li>
+  {{/each}}
+</ul>
+
+
+<div class = "row">
+  <div class = "col-sm-6">
+    <h2 class = "created">Created Burgers</h2>
+
+    <ul class = "created" >
+      {{#each burger}}
+        {{#if false}}
+          {{> burger created = true}}
+        {{/if}}
+      {{/each}}
+    </ul>
+  </div>
+
+  <div class="col-sm-6">
+    <h2 class = "devoured">Devoured Burgers</h2>
+
+    <ul class = "devoured">
+      {{#each burger}}
+        {{#if true}}
+          {{> burger devoured = true}}
+        {{/if}}
+      {{/each}}
+    </ul>
+  </div>
+</div>
+
