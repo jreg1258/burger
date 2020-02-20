@@ -10,16 +10,16 @@ const orm = {
             if (err) throw err;
             callback(result)
         })},
-    selectOne: (name,callback) => {
-        const query = "SELECT * FROM "+tableName+" WHERE id = ?"
+    create: (name,callback) => {
+        const query = "INSERT INTO "+tableName+"(burger, devoured) VALUES(?,?)"
 
-        connection.query(query, [name], (err,result)=>{
+        connection.query(query, [name,0], (err,result)=>{
             if (err) throw err;
             callback(result)
         })},
-    updateOne: (burger, id, callback) => {
-        const col = "burger_name"
-        const query = "UPDATE "+tableName+" SET "+col+"="+burger+" WHERE id = ?;"
+    devour: (id, callback) => {
+        const col = "devoured"
+        const query = "UPDATE "+tableName+" SET "+col+"=1 WHERE id = ?;"
 
         connection.query(query, [id], (err, result)=>{
             if (err) throw err;
