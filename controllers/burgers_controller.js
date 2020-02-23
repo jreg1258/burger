@@ -1,11 +1,11 @@
 const express = require("express");
-const burger = require("../model/burger")
+const burger = require("../models/burger")
 
 const router = express.Router()
 
 router.get(__dirname + "/public", function(req, res) {
     burger.all(function(data) {
-      var burgerObject = {
+      const burgerObject = {
         burgers: data
       };
       console.log(burgerObject);
@@ -25,14 +25,14 @@ router.get(__dirname + "/public", function(req, res) {
   })
   
   router.post("/burgers/create", function(req, res){
-      burger.create(req.body.burgerName, function(result){
+      burger.create(req.body.name, function(result){
           console.log(result)
           res.redirect("/burgers")
       }) // in public folder have js folder taht calls these routes and then creates the burger
   })
   
   router.put("/burgers/:id", function(req, res){
-      burger.devour(req.params.id, function(result){
+      burger.devour(req.body.id, function(result){
           console.log(result)
           res.sendStatus(200)
       })
