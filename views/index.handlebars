@@ -1,47 +1,60 @@
-<h1> Burger Tyme </h1>
-<h2>Eat Sum! Create YOUR Burger!</h2>
+<h1 class = "burgerTitle"> Burgers! </h1>
 
-<form class="create-form  burger-entry-group">
+<h2>Get ya Burgers!</h2>
+
+<img class = "burger-pic" src="assets/img/hamburger.jpg">
+
+<h2>Make a custom burger</h2>
+
+<form class="create-form burger-entry-group" action="/burgers/create" method="post"> 
 
   <div class="form-group">
-    <label class = "burger-entry-title" for="burger_field">Burger Name:</label>
-    <input class="burger-input" type="text" id="burger_field" name="name">
+    <label class = "burger-entry-title" for="ca">Burger Name:</label>
+    <input class = "burger-input" type="input" id="burger-box" name="name">
   </div>
 
-  <button class="button" id="burgersub" type="submit">Add Your Custom Burger</button>
+  <button class = "button" type="submit">Add Your Custom Burger</button> 
 </form>
 
 
-<ul class = "burger_list">
-  {{#each burgers}}
+{{!-- <ul class = "burger_list">
+  {{#each burger_name}}
     <li>{{this}}</li>
   {{/each}}
-</ul>
+</ul> --}}
 
 
 <div class = "row">
-  <div class = "col-sm-6">
+  <div class = "col-med-6 created-column">
     <h2 class = "created">Created Burgers</h2>
 
-    <ul class = "created" >
-      {{#each burgers}}
-        {{#if false}}
-          {{> burgers created = true}}
-        {{/if}}
+    <p class = "created-list" >
+        {{#each burger_Data }}
+
+        {{#unless this.devoured}}
+          <form action =>
+            <li class = "created-list"><button class = "created-buttons" id = {{this.id}}>{{this.id}}. Click to eat your {{this.burger_name}}</button></li>
+          </form>
+        {{/unless}}
+
+
       {{/each}}
-    </ul>
+    </p>
   </div>
 
-  <div class="col-sm-6">
+  <div class="col-med-6 devoured-column">
     <h2 class = "devoured">Devoured Burgers</h2>
 
     <ul class = "devoured">
-      {{#each burgers}}
-        {{#if true}}
-          {{> burgers devoured = true}}
-        {{/if}}
+      {{#each burger_Data}}
+          {{#if this.devoured}}
+          <li id = "eaten-list" data-newDevoured = {{this.id}}><button class = "devoured-buttons"> {{this.id}}-{{this.burger_name}}</li></button>
+          {{/if}}
       {{/each}}
     </ul>
   </div>
 </div>
 
+
+<script>
+</script>

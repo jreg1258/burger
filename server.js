@@ -1,24 +1,30 @@
-const express = require("express")
-const path = require("path")
-const app = express()
-const PORT = process.env.PORT||3030
-// Requiring our models for syncing
-const db = require("./models");
-const route = require("./controllers/burgers_controller")
-const exphbs = require("express-handlebars");
+const express = require('express')
 
-// Static directory
+
+var PORT = process.env.PORT || 3030;
+
+var app = express();
+
+// Serve static content for the app from the "public" directory in the application directory.
 app.use(express.static("public"));
+
+// Parse application body as JSON
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(route)
+
+// Set Handlebars.
+var exphbs = require("express-handlebars");
 
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-db.sequelize.sync({ force: true }).then(function() {
-    app.listen(PORT, (err,_)=>{
-        if (err) throw err;
-        console.log("Listening on http://localhost:"+PORT)
-    })
+// Import routes and give the server access to them.
+var routes = require("./controllers/burgers_controller");
+
+app.use(routes);
+
+// Start our server so that it can begin listening to client requests.
+app.listen(PORT, function() {
+  // Log (server-side) when our server has started
+  console.log("Server listening on: http://localhost:" + PORT);
 });
