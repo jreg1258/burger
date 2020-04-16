@@ -1,36 +1,24 @@
-<h1 class = "burgerTitle"> Burgers! </h1>
+<h1 class = "burgerTitle"> BurgerTime </h1>
 
-<h2>Get ya Burgers!</h2>
+<img class = "burgerPic" src="assets/img/burgers-banner.jpg">
 
-<img class = "burger-pic" src="assets/img/hamburger.jpg">
-
-<h2>Make a custom burger</h2>
+<h2>Make your own burger!</h2>
 
 <form class="create-form burger-entry-group" action="/burgers/create" method="post"> 
 
   <div class="form-group">
-    <label class = "burger-entry-title" for="ca">Burger Name:</label>
+    <label class = "burger-entry-title" for="ca">Burger:</label>
     <input class = "burger-input" type="input" id="burger-box" name="name">
   </div>
 
-  <button class = "button" type="submit">Add Your Custom Burger</button> 
+  <button class = "button" type="submit">Add Burger!</button> 
 </form>
-
-
-{{!-- <ul class = "burger_list">
-  {{#each burger_name}}
-    <li>{{this}}</li>
-  {{/each}}
-</ul> --}}
-
-
 <div class = "row">
   <div class = "col-med-6 created-column">
-    <h2 class = "created">Created Burgers</h2>
+    <h2 class = "created">Burgers</h2>
 
     <p class = "created-list" >
         {{#each burger_Data }}
-
         {{#unless this.devoured}}
           <form action =>
             <li class = "created-list"><button class = "created-buttons" id = {{this.id}}>{{this.id}}. Click to eat your {{this.burger_name}}</button></li>
@@ -48,7 +36,7 @@
     <ul class = "devoured">
       {{#each burger_Data}}
           {{#if this.devoured}}
-          <li id = "eaten-list" data-newDevoured = {{this.id}}><button class = "devoured-buttons"> {{this.id}}-{{this.burger_name}}</li></button>
+          <li id = "eaten-list" data-newDevoured = {{this.id}}><button class = "devoured-buttons">{{this.burger_name}}</li></button>
           {{/if}}
       {{/each}}
     </ul>

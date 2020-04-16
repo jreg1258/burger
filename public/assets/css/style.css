@@ -1,0 +1,20 @@
+.burgerTitle, h2, form {
+    margin: auto;
+    text-align:center;
+}
+
+body { 
+    background-color:purple;
+}
+
+h2 {
+    margin: 8px;
+}
+
+.burgerPic {
+    width: 100%;
+}
+
+.col-med-6 {
+margin: auto;
+}
