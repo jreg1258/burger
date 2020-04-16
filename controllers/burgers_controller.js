@@ -8,7 +8,6 @@ router.get(__dirname + "/public", function(req, res) {
       const burgerObject = {
         burgers: data
       };
-      console.log(burgerObject);
       res.render("index", burgerObject);
     });
   });
@@ -25,15 +24,12 @@ router.get(__dirname + "/public", function(req, res) {
 })
 
   router.post("/burgers/create", function(req, res){
-      console.log(req.body.name)
      burgers.create(req.body.name, (result)=>res.redirect("/burgers"))
       }) // in public folder have js folder taht calls these routes and then creates the burger
   
   
       router.put("/putBurger", function(req, res){
-        console.log(req.body.id)
           burgers.update(req.body.id, function(result){
-              console.log(result)
               res.sendStatus(200)
           })
       })

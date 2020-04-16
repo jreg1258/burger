@@ -16,7 +16,6 @@
 <script>
 	$('.created-buttons').on("click",(event) => {
     event.preventDefault();
-	console.log(event.target.id)
 	$.ajax({
 		method: "PUT",
 		url: "/putBurger",
