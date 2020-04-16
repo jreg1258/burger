@@ -17,12 +17,13 @@
   <div class = "col-med-6 created-column">
     <h2 class = "created">Burgers</h2>
 
-    <p class = "created-list" >
+    <ul class = "created-list" >
         {{#each burger_Data }}
         {{#unless this.devoured}}
           <form action =>
-            <li class = "created-list"><button class = "created-buttons" id = {{this.id}}>{{this.id}}. Click to eat your {{this.id}}-{{this.burger_name}}</button></li>
+            <li class = "created-list"><button class = "created-buttons" id = {{this.id}}>{{this.id}}. Click to eat your {{this.burger_name}} burger!</button></li>
           </form>
+          </ul>
         {{/unless}}
 
 
@@ -36,7 +37,7 @@
     <ul class = "devoured">
       {{#each burger_Data}}
           {{#if this.devoured}}
-          <li id = "eaten-list" data-newDevoured = {{this.id}}><button class = "devoured-buttons">{{this.burger_name}}</li></button>
+          <li id = "eaten-list" data-newDevoured = {{this.id}}><button class = "devoured-buttons">You smashed on the {{this.burger_name}} burger! yum!</li></button>
           {{/if}}
       {{/each}}
     </ul>

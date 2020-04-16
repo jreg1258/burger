@@ -7,7 +7,7 @@ body {
     background-color:purple;
 }
 
-h2 {
+h2, li {
     margin: 8px;
 }
 
